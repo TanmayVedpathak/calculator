@@ -140,7 +140,6 @@ function solveExp(miniExpression) {
     }
 
     numbers = numbers.map((number) => Number(number));
-    // console.log(numbers, containOperator);
 
     // for multiplication
     if (containOperator.includes("*")) {
@@ -248,7 +247,6 @@ function evaluateExpression(exp) {
     let matches = [];
 
     while ((match = re.exec(newExp)) !== null) {
-      // console.log(match);
       matches.push(match);
     }
     matches.reverse();
@@ -260,9 +258,6 @@ function evaluateExpression(exp) {
         newExp.substring(ele.index + 1);
     });
 
-    console.log("newExp", newExp);
-    // &&
-    //   /[0-9][+\-\*\/%][0-9]/g.test(newExp)
     while (/[\(\)+\-*\/%]/g.test(newExp) && !/^-\d+$/.test(newExp)) {
       if (!/[+\-*/%]/g.test(newExp)) {
         newExp = newExp.replaceAll("(", "").replaceAll(")", "");
@@ -311,7 +306,6 @@ calculator__input.addEventListener("input", function (event) {
     event.target.value = event.target.value.slice(0, -1);
   }
   expression = event.target.value;
-  // console.table({ expression, event: event.target.value });
 });
 
 history__btn.addEventListener("click", function () {
@@ -346,8 +340,6 @@ bracket__key.addEventListener("click", function () {
     calculator__input.value = expression;
     parenthesisArr.pop();
   }
-
-  console.log(parenthesisArr);
 });
 
 result__key.addEventListener("click", function () {
@@ -403,6 +395,3 @@ calculator__input1.addEventListener("blur", function () {
   document.addEventListener("keydown", keydownEventListener);
 });
 
-let newExp = "-7=";
-
-console.log(!/^-\d+$/.test(newExp));
